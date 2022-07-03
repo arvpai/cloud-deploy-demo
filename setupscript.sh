@@ -30,8 +30,8 @@ gcloud artifacts repositories create my-repository \
   --location=us-central1
 
 #### IDENTIFY AUTHOR OF COMMITS
-git config --global user.email "mattgilliam0904@gmail.com"
-git config --global user.name "MaGilli81"
+git config --global user.email "GITHUB USER EMAIL ADDRESS"
+git config --global user.name "GITHUB USER NAME"
 
 # CREATE A REPO IN CLOUD SOURCE REPOSITORY
 gcloud source repos create hello-cloudbuild-app
