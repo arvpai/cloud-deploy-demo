@@ -1,0 +1,8 @@
+apiVersion: deploy.cloud.google.com/v1beta1
+kind: DeliveryPipeline
+metadata:
+  name: hello-cloudbuild-delivery-pipeline
+description: hello-cloudbuild delivery pipeline
+serialPipeline:
+ stages:
+ - targetId: dev
