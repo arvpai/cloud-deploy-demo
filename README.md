@@ -26,4 +26,4 @@ After the script completes, you will have:
 
 ## Clean Up
 
-To delete the environment run: `./cleanup.sh
+To delete the environment run: `./cleanup.sh`
