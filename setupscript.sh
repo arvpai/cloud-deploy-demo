@@ -1,5 +1,7 @@
 #!/bin/bash
 
+##### !!!!!!! CHANGE GITHUB USERNAME AND EMAIL ADDRESS BELOW !!!!!! ######
+
 #### SET PROJECT VARIABLES ####
 export PROJECT_ID=$(gcloud config get-value core/project)
 export PROJECT_NUMBER="$(gcloud projects describe ${PROJECT_ID} --format='get(projectNumber)')"
