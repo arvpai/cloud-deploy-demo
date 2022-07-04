@@ -2,8 +2,8 @@
 
 Uses the following technologies:
 
-- CSR
-- AR
+- Cloud Source Repository
+- Artifact Registry
 - Cloud Build
 - Cloud Deploy
 - GKE
