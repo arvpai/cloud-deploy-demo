@@ -1,7 +1,4 @@
-Run ./setupscript.sh
-
-Run ./cleanup.sh
-
+GCP Cloud Native CICD Pipeline: (CSR, AR, Cloud Build, Cloud Deploy, GKE)
 Clone this repo: git clone github.com/MaGilli81/cloud-deploy-demo
 
 Make 2 scripts executable: chmod +x setupscript.sh && chmod +x cleanup.sh  
@@ -15,5 +12,6 @@ After the script completes, you will have:
 - Created Cloud Build Triggers for hello-cloudbuild-ci and hello-cloudbuild-deploy
 - Created an Artifact Registry Repository for the image output of hello-cloudbuild-ci trigger
 - Created a Cloud Deploy pipeline for deploying the image to the hello-cloudbuild GKE cluster
+- End result will deploy a kubernetes.yaml file with a deployment and service for hello-cloudbuil-app
 
 To delete the environment run: ./cleanup.sh
