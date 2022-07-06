@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #### SET PROJECT VARIABLES ####
-export GITHUB_USERNAME=
-export GITHUB_USEREMAIL=
+export GITHUB_USERNAME=MaGilli81
+export GITHUB_USEREMAIL=mattgilliam0904@gmail.com
 export PROJECT_ID=$(gcloud config get-value core/project)
 export PROJECT_NUMBER="$(gcloud projects describe ${PROJECT_ID} --format='get(projectNumber)')"
 export AR_REPOSITORY=my-repository
@@ -89,7 +89,6 @@ gcloud projects add-iam-policy-binding ${PROJECT_NUMBER} \
     --member=serviceAccount:${PROJECT_NUMBER}@cloudbuild.gserviceaccount.com \
     --role=roles/container.developer \
     --role=roles/source.writer \
-    # --role=roles/clouddeploy.admin \
     --role=roles/clouddeploy.jobRunner
 
 #### CLONE THE HELLO-CLOUDBUILD-ENV REPO AND CREATE A PRODUCTION BRANCH
@@ -99,9 +98,11 @@ cd ~/hello-cloudbuild-env
 git checkout -b production
 
 #### Copy the cloudbuild-delivery.yaml file available in the hello-cloudbuild-app repository and commit the change ####
+#### Copy the cloudbuild-delivery.yaml file available in the hello-cloudbuild-app repository and commit the change ####
 cd ~/hello-cloudbuild-env
+echo "testing"
 cp ~/hello-cloudbuild-app/cloudbuild-delivery.yaml ~/hello-cloudbuild-env/cloudbuild.yaml
-
+echo "copying"
 git add .
 git commit -m "Create cloudbuild.yaml for deployment"
 
@@ -148,9 +149,10 @@ git push google master
 #### REGISTER CLOUD DEPLOY DELIVERY PIPELINE ####
 cd ~/
 gcloud deploy apply --file=delivery-pipeline.yaml --region=${REGION} && \
-gcloud deploy apply --file=target_dev.yaml --region=${REGION}
+gcloud deploy apply --file=target-dev.yaml --region=${REGION}
 
 #### CREATE A RELEASE FOR THE CLOUD DEPLOY DELIVERY PIPELINE ####
+gcloud config set project cloud-deploy-354814
 gcloud deploy releases create my-release \
 --delivery-pipeline=hello-cloudbuild-delivery-pipeline \
 --region=${REGION}

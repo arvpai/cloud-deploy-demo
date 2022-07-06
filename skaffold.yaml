@@ -1,7 +1,7 @@
-apiVersion: skaffold/v2beta28
+apiVersion: skaffold/v2beta27
 kind: Config
 metadata:
-  name: hello-cloudbuild-app
+  name: mattgilliam
 build:
   artifacts:
   - image: us-central1-docker.pkg.dev/google_cloud_project/my-repository/hello-cloudbuild
@@ -12,5 +12,5 @@ deploy:
   kubectl:
     manifests:
     - delivery-pipeline.yaml
-    - target_dev.yaml
+    - target-dev.yaml
     - hello-cloudbuild-app/kubernetes.yaml

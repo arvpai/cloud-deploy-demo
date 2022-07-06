@@ -5,4 +5,4 @@ metadata:
 description: hello-cloudbuild delivery pipeline
 serialPipeline:
  stages:
- - targetId: dev
+ - targetId: target-dev

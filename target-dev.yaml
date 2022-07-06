@@ -1,0 +1,7 @@
+apiVersion: deploy.cloud.google.com/v1beta1
+kind: Target
+metadata:
+  name: target-dev
+description: dev cluster
+gke:
+  cluster: projects/google_cloud_project/locations/us-central1/clusters/hello-cloudbuild
