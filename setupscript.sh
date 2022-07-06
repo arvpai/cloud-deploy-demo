@@ -2,7 +2,7 @@
 
 #### SET PROJECT VARIABLES ####
 export GITHUB_USERNAME=MaGilli81
-export GITHUB_USEREMAIL=mattgilliam0904@gmail.com
+export GITHUB_USEREMAIL=mattgilliam0904@gmail.com  
 export PROJECT_ID=$(gcloud config get-value core/project)
 export PROJECT_NUMBER="$(gcloud projects describe ${PROJECT_ID} --format='get(projectNumber)')"
 export AR_REPOSITORY=my-repository
@@ -39,9 +39,9 @@ gcloud artifacts repositories create ${AR_REPOSITORY} \
   --repository-format=docker \
   --location=${REGION}
 
-#### IDENTIFY AUTHOR OF COMMITS
-git config --global user.email "${GITHUB_USEREMAIL}"
-git config --global user.name "${GITHUB_USERNAME}"
+# #### IDENTIFY AUTHOR OF COMMITS
+# git config --global user.email "${GITHUB_USEREMAIL}"
+# git config --global user.name "${GITHUB_USERNAME}"
 
 # CREATE A REPO IN CLOUD SOURCE REPOSITORY
 gcloud source repos create ${CSR_REPOSITORY_APP}
@@ -152,7 +152,7 @@ gcloud deploy apply --file=delivery-pipeline.yaml --region=${REGION} && \
 gcloud deploy apply --file=target-dev.yaml --region=${REGION}
 
 #### CREATE A RELEASE FOR THE CLOUD DEPLOY DELIVERY PIPELINE ####
-gcloud config set project cloud-deploy-354814
+gcloud config set project ${PROJECT_ID}
 gcloud deploy releases create my-release \
 --delivery-pipeline=hello-cloudbuild-delivery-pipeline \
 --region=${REGION}
