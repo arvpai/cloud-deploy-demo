@@ -89,7 +89,7 @@ gcloud projects add-iam-policy-binding ${PROJECT_NUMBER} \
     --member=serviceAccount:${PROJECT_NUMBER}@cloudbuild.gserviceaccount.com \
     --role=roles/container.developer \
     --role=roles/source.writer \
-    --role=roles/clouddeploy.admin \
+    # --role=roles/clouddeploy.admin \
     --role=roles/clouddeploy.jobRunner
 
 #### CLONE THE HELLO-CLOUDBUILD-ENV REPO AND CREATE A PRODUCTION BRANCH
@@ -146,9 +146,19 @@ git push google master
      --role=roles/container.developer
 
 #### REGISTER CLOUD DEPLOY DELIVERY PIPELINE ####
-cd ..
+cd ~/
 gcloud deploy apply --file=delivery-pipeline.yaml --region=${REGION} && \
 gcloud deploy apply --file=target_dev.yaml --region=${REGION}
 
 #### CREATE A RELEASE FOR THE CLOUD DEPLOY DELIVERY PIPELINE ####
-gcloud deploy releases create my-release --delivery-pipeline=hello-cloudbuild-delivery-pipeline --region=${REGION}
+gcloud deploy releases create my-release \
+--delivery-pipeline=hello-cloudbuild-delivery-pipeline \
+--region=${REGION}
+
+# --image=us-central1-docker.pkg.dev/cloud-deploy-354814/my-repository/hello-cloudbuild:d4080a7
+
+# gcloud deploy releases create rel-'$DATE'-'$TIME' \
+#   --delivery-pipeline=hello-cloudbuild-delivery-pipeline \
+#   --region=us-central1 \
+#   --images=image=us-central1-docker.pkg.dev/$PROJECT_ID/my-repository/hello-cloudbuild:${SHORT_SHA}
+# google_cloud_project/us-central1/hello-cloudbuild
