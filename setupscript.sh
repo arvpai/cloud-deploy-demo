@@ -171,4 +171,4 @@ git push google master
 # gcloud deploy releases create my-release \
 #   --delivery-pipeline=hello-cloudbuild-delivery-pipeline \
 #   --region=us-central1 \
-# #   --build-artifacts=gs://cloud-deploy-354814_clouddeploy_us-central1/source/1657133930.500557-104e499573cb4b4ea54eae66b8448aad.tgz
+# #   --build-artifacts=gs://$PROJECT_ID_clouddeploy_us-central1/source/1657133930.500557-104e499573cb4b4ea54eae66b8448aad.tgz
