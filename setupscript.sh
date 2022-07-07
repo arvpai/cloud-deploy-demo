@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #### SET PROJECT VARIABLES ####
-export GITHUB_USERNAME=arvpai
-export GITHUB_USEREMAIL=arvpai@deloitte.com  
+export GITHUB_USERNAME=xxxxx
+export GITHUB_USEREMAIL=xxxx@xxxx.com  
 export PROJECT_ID=$(gcloud config get-value core/project)
 export PROJECT_NUMBER="$(gcloud projects describe ${PROJECT_ID} --format='get(projectNumber)')"
 export AR_REPOSITORY=my-repository
@@ -54,7 +54,7 @@ gcloud source repos create ${CSR_REPOSITORY_ENV}
 
 #### CLONE A GITHUB REPOSITORY FOR THE HELLO-CLOUDBUILD-APP SOURCE CODE #### 
 cd ~
-git clone https://github.com/arvpai/gke-gitops-tutorial-cloudbuild \
+git clone https://github.com/xxxx/gke-gitops-tutorial-cloudbuild \
     hello-cloudbuild-app
 
 #### CONFIGURE HELLO-CLOUDBUILD-APP CSR REPO AS THE REMOTE #### 
