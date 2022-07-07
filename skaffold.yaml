@@ -1,10 +1,10 @@
 apiVersion: skaffold/v2beta27
 kind: Config
 metadata:
-  name: mattgilliam
+  name: cloud-deploy
 build:
   artifacts:
-  - image: us-central1-docker.pkg.dev/google_cloud_project/my-repository/hello-cloudbuild
+  - image: us-central1-docker.pkg.dev/cloud-deploy-354814/my-repository/hello-cloudbuild
     context: hello-cloudbuild-app
     docker:
       dockerfile: Dockerfile
@@ -13,4 +13,8 @@ deploy:
     manifests:
     - delivery-pipeline.yaml
     - target-dev.yaml
-    - hello-cloudbuild-app/kubernetes.yaml
+    - kubernetes.yaml
+      # - /workspace/source/delivery-pipeline.yaml
+      # - /workspace/source/target_dev.yaml
+      # - /workspace/source/hello-cloudbuild-app/kubernetes.yaml
+      # - gs://cloud-deploy-354814_clouddeploy_us-central1
