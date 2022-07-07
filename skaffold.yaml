@@ -17,4 +17,4 @@ deploy:
       # - /workspace/source/delivery-pipeline.yaml
       # - /workspace/source/target_dev.yaml
       # - /workspace/source/hello-cloudbuild-app/kubernetes.yaml
-      # - gs://cloud-deploy-354814_clouddeploy_us-central1
+      # - gs://$PROJECT_ID_clouddeploy_us-central1
